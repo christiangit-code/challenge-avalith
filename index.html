@@ -22,7 +22,7 @@
 
 	<title>Contactos</title>
 </head>
-<body onload="consultarConatcto();">
+<body onload="consultarConatcto();consultarPais();">
 	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 	<script type="text/javascript" src="js/gestionContacto.js"></script> 
 
@@ -69,11 +69,6 @@
 											
 											<input id="idPaisContacto" list="paisContacto" name="browser" class="form-control" placeholder="Pa&iacute;s" required onBlur="validarCampoBlur(this.id)" autocomplete="on">
 											<datalist id="paisContacto">
-											  <option label="Internet Explorer" value="1">
-											  <option value="Firefox">
-											  <option value="Chrome">
-											  <option value="Opera">
-											  <option value="Safari">
 											</datalist>
 	                            		</td>
 	                            		<td>

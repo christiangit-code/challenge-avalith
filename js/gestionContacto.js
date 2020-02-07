@@ -16,61 +16,6 @@ $(document).ready(function()
  				$(this).show();
  		});
 	});
-
-	// $("#nombreContacto").blur(function(){
- //    		$(this).css("background-color", "#FFFFCC");
-	// });
-
-	/*$("#apellidoContacto").blur(function(){
-    		$(this).css("background-color", "#FFFFCC");
-	});*/
-
-	// $("#mailContacto").blur(function(){
- //    		$(this).css("background-color", "#FFFFCC");
-	// });
-
-	// $("#fechaNacContacto").blur(function(){
- //    		$(this).css("background-color", "#FFFFCC");
-	// });
-
-	// $("#idPaisContacto").blur(function(){
- //    		$(this).css("background-color", "#FFFFCC");
-	// });
-
-	// $("#tlfContacto").blur(function(){
- //    		$(this).css("background-color", "#FFFFCC");
-	// });
-
-	/*$(function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#paisContacto" ).autocomplete({
-      source: availableTags
-    });
-  } );*/
-
 });
 
 function validarCampoBlur(id)
@@ -178,6 +123,29 @@ function consultarConatcto()
 	var oReq = new XMLHttpRequest();
 	oReq.addEventListener("load", armarTabla);
 	oReq.open("GET", "https://jsonplaceholder.typicode.com/users");
+	oReq.send();
+
+}
+
+
+function armarComboPais()
+{
+	
+	var dataList = document.getElementById('paisContacto');
+
+	var registros = JSON.parse(this.responseText);
+
+	for (var i = 0; i < registros.length; i++)
+    {
+    	crearObjeto('option',{'id':'pais'+registros[i].numericCode, 'value': registros[i].name}, null, dataList);
+    }
+}
+
+function consultarPais()
+{
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", armarComboPais);
+	oReq.open("GET", "https://restcountries.eu/rest/v2/all");
 	oReq.send();
 
 }
