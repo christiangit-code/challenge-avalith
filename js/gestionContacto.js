@@ -1,3 +1,6 @@
+var idRegistroActivo = null; 
+
+
  // Write on keyup event of keyword input element
 $(document).ready(function()
 {
@@ -76,7 +79,7 @@ function validarCampoBlur(id)
 
 	var elem = document.getElementById(id);
 	
-	if(id == 'nombreContacto' || id == 'apellidoContacto' || id== "fechaNacContacto")
+	if(id == 'nombreContacto' || id == 'usuarioContacto' || id== "fechaNacContacto")
 	{
 		var valor = elem.value;
 
@@ -144,3 +147,141 @@ function asignarValido(obj, valor)
 	}
 }
 
+function armarTabla()
+{
+	
+	var cuerpoTablaBusqueda = document.getElementById('cuerpoTablaContacto');
+
+	var registros = JSON.parse(this.responseText);
+
+	for (var i = 0; i < registros.length; i++)
+    {
+    	fila = crearObjeto('tr',{'id':'contacto'+registros[i].id,},null,null);
+
+		columnaNombre = crearObjeto('td',{},registros[i].name,fila);
+		columnaUsuario = crearObjeto('td',{},registros[i].username,fila);
+
+		columnaMail = crearObjeto('td',{},registros[i].email,fila);
+		columnaSitioWeb = crearObjeto('td',{},registros[i].website,fila);
+		columnaCodigoPostal = crearObjeto('td',{},registros[i].address.zipcode,fila);
+		columnaTlf = crearObjeto('td',{},registros[i].phone,fila);
+
+		columnaEliminar = crearObjeto('button', {'id': 'botonEliminar'+registros[i].id, 'onClick': 'asignarRegistroEliminar(\'contacto'+registros[i].id+'\')', 'type': 'button', 'class': 'btn btn-outline-dark', 'data-toggle':"modal", 'data-target': "#exampleModal"}, 'Eliminar', fila);
+		
+		asociaHijo(fila, cuerpoTablaBusqueda);
+		
+    }
+}
+
+function consultarConatcto()
+{
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", armarTabla);
+	oReq.open("GET", "https://jsonplaceholder.typicode.com/users");
+	oReq.send();
+
+}
+/*
+function eliminarContacto(idFila)
+{
+	eliminaHijo(document.getElementById(idFila));
+}*/
+
+function asignarRegistroEliminar(idFila)
+{
+	idRegistroActivo = idFila;
+}
+
+function verificaRegistroAEliminar()
+{
+	if(idRegistroActivo != null)
+	{
+		eliminaHijo(document.getElementById(idRegistroActivo));
+	}
+}
+//-------------------
+function crearObjeto(tipo,propiedades,texto,nodoPadre)
+{
+	var objHtml = xCreateElement(tipo);
+	
+	for (pr in propiedades)
+	{
+		objHtml.setAttribute(pr, propiedades[pr]);
+		
+	}
+	
+	if(texto != null)
+	{
+		
+		var objTexto = document.createTextNode(texto);
+        xAppendChild(objHtml,objTexto);
+	}
+	
+	if(nodoPadre != null)
+	{
+		xAppendChild(nodoPadre,objHtml);
+		//return;
+		
+	} else {
+		
+		return objHtml;
+	}
+
+}
+
+function asociaHijo(obj,nodoPadre)
+{
+	xAppendChild(nodoPadre,obj);
+	
+}
+
+function eliminaHijo(objHtml)
+{
+	while(objHtml.firstChild)
+	{
+	
+		objHtml.removeChild(objHtml.firstChild);
+	}
+	
+}
+
+function insertarTexto(objHtml,texto)
+{
+	var objTtexto = document.createTextNode(texto);
+	xAppendChild(objHtml,objTtexto);
+
+	
+}
+
+/*function agregarAtributo(objHtml,propiedades)
+{
+	 if (!xDef(objHtml) || !xDef(propiedades) || (typeof propiedades != 'object')) return;
+
+        for (pr in propiedades)
+        {
+			objHtml.setAttribute(pr, propiedades[pr]);
+            
+        }
+}*/
+
+/*function eliminarNodo(id)
+{
+	var nodoEliminar = xGetElementById(id);
+	
+	if(nodoEliminar != null)
+	{
+		nodoEliminar.parentNode.removeChild(nodoEliminar);
+	}
+}
+*/
+function xCreateElement(sTag)
+{
+  if (document.createElement) return document.createElement(sTag);
+  else return null;
+}
+
+function xAppendChild(oParent, oChild)
+{
+  if (oParent.appendChild) return oParent.appendChild(oChild);
+  else return null;
+}

@@ -15,22 +15,27 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	
+	<script type="text/javascript">
+		
+	</script>
+
 	<title>Contactos</title>
 </head>
-<body>
+<body onload="consultarConatcto();">
 	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 	<script type="text/javascript" src="js/gestionContacto.js"></script> 
 
 
 
-	<main role="main" class="container my-auto">
+	<main role="main" class="my-auto">
             <!-- <div class="row"> -->
                 <!-- <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3col-12"> -->
                     <form>
 	                    	<table class="table table-bordered " id="tablaFormRegistro" >
 							  	<thead class="thead-light">
 								  	<tr>
-								      <th colspan="4" scope="col">Registrar/Modificar</th>
+								      <th colspan="4" scope="col">Registrar</th>
 								    </tr>
 							 	</thead>
 								<tbody>
@@ -40,8 +45,8 @@
 	                            			<input id="nombreContacto" name="nombreContacto" class="form-control" type="text" placeholder="Nombre" onBlur="validarCampoBlur(this.id)" required>
 	                            		</td>
 	                            		<td>
-											<label for="apellidoContacto">Apellido*</label>
-	                            			<input id="apellidoContacto" name="apellidoContacto" class="form-control" type="text" placeholder="Apellido" onBlur="validarCampoBlur(this.id)" required>
+											<label for="usuarioContacto">Usuario*</label>
+	                            			<input id="usuarioContacto" name="usuarioContacto" class="form-control" type="text" placeholder="Usuario" onBlur="validarCampoBlur(this.id)" required>
 	                            		</td>
 	                            		<td>
 											<label for="mailContacto">Email*</label>
@@ -94,7 +99,7 @@
 						<div id="mensajeFormObligatorio"></div>
 						<div align="right">
 					    	<button id="botonAgregar" class="btn btn-primary mb-2" type="submit" >Agregar</button>
-					      	<button id="botonCancelar" class="btn btn-secondary mb-2" type="button">Cancelar</button>
+					      	<button id="botonCancelar" class="btn btn-secondary mb-2" type="reset" >Cancelar</button>
 					    </div>
 
 
@@ -117,25 +122,48 @@
                 <!-- </div> -->
             <!-- </div> -->
 
+            <!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Confirmaci&oacute;n</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        Desea eliminar el registro?
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+			        <button type="button" class="btn btn-primary" onClick="verificaRegistroAEliminar();" data-dismiss="modal">Eliminar</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
             <table class="table" id="mytable" >
 			  <thead class="thead-light">
 			  	<tr>
 			      <th colspan="2" scope="col" class="bg-info">
 			      	<input id="campoBusqueda" name="campoBusqueda" class="form-control" type="etxt" placeholder="Buscar">
 			      </th>
-			      <th colspan="4" scope="col" class="bg-info"></th>
+			      <th colspan="5" scope="col" class="bg-info"></th>
 			    </tr>
 			    <tr>
 			      <th scope="col">Nombre</th>
-			      <th scope="col">Apellido</th>
+			      <th scope="col">Usuario</th>
 			      <th scope="col">Email</th>
-			      <th scope="col">Fecha Nacimiento</th>
-			      <th scope="col">Pa&iacute;s</th>
+			      <th scope="col">Sitio Web</th>
+			      <th scope="col">C&oacute;digo Postal</th>
 			      <th scope="col">Tel&eacute;fono</th>
+			      <th scope="col"></th>
 			    </tr>
 			  </thead>
-			  <tbody>
-			    <tr>
+			  <tbody id="cuerpoTablaContacto">
+			    <!-- <tr>
 			      <th scope="row">1</th>
 			      <td>Mark</td>
 			      <td>Otto</td>
@@ -158,7 +186,7 @@
 			      <td>@twitter</td>
 			      <td>the Bird</td>
 			      <td>@twitter</td>
-			    </tr>
+			    </tr> -->
 			  </tbody>
 			</table>
         </main>
