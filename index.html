@@ -6,22 +6,73 @@
 
 	<link rel= "stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity= "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin= "anonymous" > <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity= "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin= "anonymous" ></script> 
 
-	 <script src= "https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity= "sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin= "anonymous" ></script> <script src= "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity= "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin= "anonymous" ></script> 
+	<script src= "https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity= "sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin= "anonymous" ></script> <script src= "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity= "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin= "anonymous" ></script> 
 
-	<title>BooStrapt</title>
+	<title>Contactos</title>
 </head>
 <body>
-	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script> -->
+	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<script type="text/javascript" src="js/gestionContacto.js"></script> 
+
+
 
 	<main role="main" class="container my-auto">
             <div class="row">
                 <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3
                     col-12">
-                    <h2 class="text-center">Bienvenido de nuevo</h2>
-                    <img class="img-fluid mx-auto d-block rounded" src="https://picsum.photos/id/870/300/200" />
                     <form>
-                        <div class="form-group">
+
+                    	<table class="table" id="tablaFormRegistro" >
+						  	<thead class="thead-light">
+							  	<tr>
+							      <th colspan="4" scope="col">Registrar/Modificar</th>
+							    </tr>
+						 	</thead>
+							<tbody>
+								<tr>
+									<td>
+										<label for="palabraSecreta">Contraseña</label>
+                            			<input id="palabraSecreta" name="palabraSecreta" class="form-control" type="password" placeholder="Contraseña">
+                            		</td>
+                            		<td>
+										<label for="palabraSecreta">Contraseña</label>
+                            			<input id="palabraSecreta" name="palabraSecreta" class="form-control" type="password" placeholder="Contraseña">
+                            		</td>
+                            		<td>
+										<label for="palabraSecreta">Contraseña</label>
+                            			<input id="palabraSecreta" name="palabraSecreta" class="form-control" type="password" placeholder="Contraseña">
+                            		</td>
+                            		<td>
+										<label for="palabraSecreta">Contraseña</label>
+                            			<input id="palabraSecreta" name="palabraSecreta" class="form-control" type="password" placeholder="Contraseña">
+                            		</td>
+                            	</tr>
+							    <!-- <tr>
+							      <td>Nombre</td>
+							      <td><input id="nombre" name="nombre" class="form-control" type="etxt" placeholder="Nombre"></td>
+							      <td>Apellido</td>
+							      <td><input id="apellido" name="apellido" class="form-control" type="etxt" placeholder="Apellido"></td>
+							    </tr> -->
+							    <!-- <tr>
+							      <td>Email</td>
+							      <td><input id="correo" name="correo" class="form-control" type="email" placeholder="Correo electrónico"></td>
+							      <td>F.Nac</td>
+							      <td>Otto</td>
+							    </tr>
+							    <tr>
+							      <td>Pa&iacute;s</td>
+							      <td>Otto</td>
+							      <td>Tel&eacute;fono</td>
+							      <td><input id="nombre" name="nombre" class="form-control" type="etxt" placeholder="Tel&eacute;fono"></td>
+							    </tr> -->
+							</tbody>
+						</table>
+
+
+
+
+
+                        <!-- <div class="form-group">
                             <label for="correo">Correo</label>
                             <input id="correo" name="correo" class="form-control" type="email" placeholder="Correo electrónico">
                         </div>
@@ -33,23 +84,26 @@
                             Entrar
                         </button>
                         <br>
-                        <a href="#">Contraseña olvidada</a>
+                        <a href="#">Contraseña olvidada</a> -->
                     </form>
                 </div>
             </div>
-            <table class="table">
+
+            <table class="table" id="mytable" >
 			  <thead class="thead-light">
 			  	<tr>
 			      <th colspan="2" scope="col">
 			      	<input id="campoBusqueda" name="campoBusqueda" class="form-control" type="etxt" placeholder="Buscar">
 			      </th>
-			      <th colspan="2" scope="col"></th>
+			      <th colspan="4" scope="col"></th>
 			    </tr>
 			    <tr>
-			      <th scope="col">#</th>
-			      <th scope="col">First</th>
-			      <th scope="col">Last</th>
-			      <th scope="col">Handle</th>
+			      <th scope="col">Nombre</th>
+			      <th scope="col">Apellido</th>
+			      <th scope="col">Email</th>
+			      <th scope="col">Fecha Nacimiento</th>
+			      <th scope="col">Pa&iacute;s</th>
+			      <th scope="col">Tel&eacute;fono</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -58,16 +112,22 @@
 			      <td>Mark</td>
 			      <td>Otto</td>
 			      <td>@mdo</td>
+			      <td>Otto</td>
+			      <td>@mdo</td>
 			    </tr>
 			    <tr>
 			      <th scope="row">2</th>
 			      <td>Jacob</td>
 			      <td>Thornton</td>
 			      <td>@fat</td>
+			      <td>Thornton</td>
+			      <td>@fat</td>
 			    </tr>
 			    <tr>
 			      <th scope="row">3</th>
 			      <td>Larry</td>
+			      <td>the Bird</td>
+			      <td>@twitter</td>
 			      <td>the Bird</td>
 			      <td>@twitter</td>
 			    </tr>
