@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- <script src= "https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity= "sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin= "anonymous" ></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src= "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity= "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin= "anonymous" ></script> 
 	
@@ -23,166 +22,99 @@
 	<title>Contactos</title>
 </head>
 <body onload="consultarConatcto();consultarPais();">
-	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	
 	<script type="text/javascript" src="js/gestionContacto.js"></script> 
 
-
-
 	<main role="main" class="my-auto">
-            <!-- <div class="row"> -->
-                <!-- <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3col-12"> -->
-                    <form>
-	                    	<table class="table table-bordered " id="tablaFormRegistro" >
-							  	<thead class="thead-light">
-								  	<tr>
-								      <th colspan="4" scope="col">Registrar</th>
-								    </tr>
-							 	</thead>
-								<tbody>
-									<tr>
-										<td class="form-group">
-											<label for="nombreContacto">Nombre*</label>
-	                            			<input id="nombreContacto" name="nombreContacto" class="form-control" type="text" placeholder="Nombre" onBlur="validarCampoBlur(this.id)" required>
-	                            		</td>
-	                            		<td>
-											<label for="usuarioContacto">Usuario*</label>
-	                            			<input id="usuarioContacto" name="usuarioContacto" class="form-control" type="text" placeholder="Usuario" onBlur="validarCampoBlur(this.id)" required>
-	                            		</td>
-	                            		<td>
-											<label for="mailContacto">Email*</label>
-	                            			<input id="mailContacto" name="mailContacto" class="form-control" type="email" placeholder="Email" onBlur="validarCampoBlur(this.id)" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
-	                            		</td>
-	                            	</tr>
-	                            	<tr>
-										<td>
-											<label for="fechaNacContacto">Fecha Nacimiento*</label>
-	                            			<input id="fechaNacContacto" name="fechaNacContacto" class="form-control" type="date" placeholder="Fecha Nacimiento" onBlur="validarCampoBlur(this.id)" required>
-	                            		</td>
-	                            		<td>
-											<label for="paisContacto">Pa&iacute;s*</label>
-	                            			<!-- <input id="paisContacto" name="paisContacto" class="form-control" type="text" placeholder="Pa&iacute;s"> -->
-	                            			<!-- <select id="paisContacto" name="paisContacto" class="form-control" placeholder="Pa&iacute;s" required autocomplete="country">
-												<option value="value1">Value 1</option> 
-												<option value="value2" selected>Value 2</option>
-												<option value="value3">Value 3</option>
-											</select> -->
-											
-											<input id="idPaisContacto" list="paisContacto" name="browser" class="form-control" placeholder="Pa&iacute;s" required onBlur="validarCampoBlur(this.id)" autocomplete="on">
-											<datalist id="paisContacto">
-											</datalist>
-	                            		</td>
-	                            		<td>
-											<label for="tlfContacto">Tel&eacute;fono*</label>
-	                            			<input id="tlfContacto" name="tlfContacto" class="form-control" type="text" placeholder="Tel&eacute;fono" onBlur="validarCampoBlur(this.id)" pattern="^\+\d{2,3}\s\d{9}$" required>
-	                            		</td>
-	                            	</tr>
-								    <!-- <tr>
-								      <td>Email</td>
-								      <td><input id="correo" name="correo" class="form-control" type="email" placeholder="Correo electrónico"></td>
-								      <td>F.Nac</td>
-								      <td>Otto</td>
-								    </tr>
-								    <tr>
-								      <td>Pa&iacute;s</td>
-								      <td>Otto</td>
-								      <td>Tel&eacute;fono</td>
-								      <td><input id="nombre" name="nombre" class="form-control" type="etxt" placeholder="Tel&eacute;fono"></td>
-								    </tr> -->
-								</tbody>
-							</table>
-						</div>
-						<div id="mensajeFormObligatorio"></div>
-						<div align="right">
-					    	<button id="botonAgregar" class="btn btn-primary mb-2" type="submit" >Agregar</button>
-					      	<button id="botonCancelar" class="btn btn-secondary mb-2" type="reset" >Cancelar</button>
-					    </div>
-
-
-
-
-                        <!-- <div class="form-group">
-                            <label for="correo">Correo</label>
-                            <input id="correo" name="correo" class="form-control" type="email" placeholder="Correo electrónico">
-                        </div>
-                        <div class="form-group">
-                            <label for="palabraSecreta">Contraseña</label>
-                            <input id="palabraSecreta" name="palabraSecreta" class="form-control" type="password" placeholder="Contraseña">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">
-                            Entrar
-                        </button>
-                        <br>
-                        <a href="#">Contraseña olvidada</a> -->
-                    </form>
-                <!-- </div> -->
-            <!-- </div> -->
-
-            <!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalLabel">Confirmaci&oacute;n</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body">
-			        Desea eliminar el registro?
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-			        <button type="button" class="btn btn-primary" onClick="verificaRegistroAEliminar();" data-dismiss="modal">Eliminar</button>
-			      </div>
-			    </div>
-			  </div>
+        <form id="formContacto">
+            	<table class="table table-bordered " id="tablaFormRegistro" >
+				  	<thead class="thead-light">
+					  	<tr>
+					      <th colspan="4" scope="col">Registrar</th>
+					    </tr>
+				 	</thead>
+					<tbody>
+						<tr>
+							<td class="form-group">
+								<label for="nombreContacto">Nombre*</label>
+                    			<input id="nombreContacto" name="nombreContacto" class="form-control" type="text" placeholder="Nombre" onBlur="validarCampoBlur(this.id)" required>
+                    		</td>
+                    		<td>
+								<label for="usuarioContacto">Usuario*</label>
+                    			<input id="usuarioContacto" name="usuarioContacto" class="form-control" type="text" placeholder="Usuario" onBlur="validarCampoBlur(this.id)" required>
+                    		</td>
+                    		<td>
+								<label for="mailContacto">Email*</label>
+                    			<input id="mailContacto" name="mailContacto" class="form-control" type="email" placeholder="Email" onBlur="validarCampoBlur(this.id)" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+                    		</td>
+                    	</tr>
+                    	<tr>
+							<td>
+								<label for="fechaNacContacto">Fecha Nacimiento*</label>
+                    			<input id="fechaNacContacto" name="fechaNacContacto" class="form-control" type="date" placeholder="Fecha Nacimiento" onBlur="validarCampoBlur(this.id)" required>
+                    		</td>
+                    		<td>
+								<label for="paisContacto">Pa&iacute;s*</label>
+								<input id="idPaisContacto" list="paisContacto" name="browser" class="form-control" placeholder="Pa&iacute;s" required onBlur="validarCampoBlur(this.id)" autocomplete="on">
+								<datalist id="paisContacto">
+								</datalist>
+                    		</td>
+                    		<td>
+								<label for="tlfContacto">Tel&eacute;fono*</label>
+                    			<input id="tlfContacto" name="tlfContacto" class="form-control" type="text" placeholder="Tel&eacute;fono" onBlur="validarCampoBlur(this.id)" pattern="^\+\d{2,3}\s\d{9}$" required>
+                    		</td>
+                    	</tr>
+					</tbody>
+				</table>
 			</div>
+			<div id="mensajeFormObligatorio"></div>
+			<div align="right">
+		    	<button id="botonAgregar" class="btn btn-primary mb-2" type="button" onClick="validarFormulario();">Agregar</button>
+		      	<button id="botonCancelar" class="btn btn-secondary mb-2" type="reset" >Cancelar</button>
+		    </div>
+        </form>
 
+        <!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Confirmaci&oacute;n</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        Desea eliminar el registro?
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		        <button type="button" class="btn btn-primary" onClick="verificaRegistroAEliminar();" data-dismiss="modal">Eliminar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 
-            <table class="table" id="mytable" >
-			  <thead class="thead-light">
-			  	<tr>
-			      <th colspan="2" scope="col" class="bg-info">
-			      	<input id="campoBusqueda" name="campoBusqueda" class="form-control" type="etxt" placeholder="Buscar">
-			      </th>
-			      <th colspan="5" scope="col" class="bg-info"></th>
-			    </tr>
-			    <tr>
-			      <th scope="col">Nombre</th>
-			      <th scope="col">Usuario</th>
-			      <th scope="col">Email</th>
-			      <th scope="col">Sitio Web</th>
-			      <th scope="col">C&oacute;digo Postal</th>
-			      <th scope="col">Tel&eacute;fono</th>
-			      <th scope="col"></th>
-			    </tr>
-			  </thead>
-			  <tbody id="cuerpoTablaContacto">
-			    <!-- <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">2</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">3</th>
-			      <td>Larry</td>
-			      <td>the Bird</td>
-			      <td>@twitter</td>
-			      <td>the Bird</td>
-			      <td>@twitter</td>
-			    </tr> -->
-			  </tbody>
-			</table>
-        </main>
+        <table class="table" id="mytable" >
+		  <thead class="thead-light">
+		  	<tr>
+		      <th colspan="2" scope="col" class="bg-info">
+		      	<input id="campoBusqueda" name="campoBusqueda" class="form-control" type="etxt" placeholder="Buscar">
+		      </th>
+		      <th colspan="5" scope="col" class="bg-info"></th>
+		    </tr>
+		    <tr>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Usuario</th>
+		      <th scope="col">Email</th>
+		      <th scope="col">Sitio Web</th>
+		      <th scope="col">C&oacute;digo Postal</th>
+		      <th scope="col">Tel&eacute;fono</th>
+		      <th scope="col"></th>
+		    </tr>
+		  </thead>
+		  <tbody id="cuerpoTablaContacto">
+		  </tbody>
+		</table>
+    </main>
 </body>
