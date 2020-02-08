@@ -58,7 +58,8 @@ $(document).ready(function()
  		// Show only matching TR, hide rest of them
  		$.each($("#mytable tbody tr"), function() 
  		{
- 			if($(this).text().toLowerCase().indexOf($(me).val().toLowerCase()) === -1)
+
+			if($(this).text().toLowerCase().indexOf($(me).val().toLowerCase()) === -1)
  				$(this).hide();
  			else
  				$(this).show();
@@ -72,11 +73,32 @@ function validarFormulario()
 	var retorno = null;
 	var idError = null;
 	var cuerpoTablaBusqueda = document.getElementById('cuerpoTablaContacto');
+	var usuarioEncontrado = false;
+	var resp = null;
 
 	var promesaValidar = new Promise(function(resolve, reject) { 
 
 		for (var i = 0; i < idObjForm.length; i++)
 		{
+			if(idObjForm[i] == 'usuarioContacto')
+			{
+
+				var elem = document.getElementById(idObjForm[i]);
+
+
+				$("#mytable tbody tr").find('td:eq(1)').each(function () {
+				 
+					//obtenemos el valor de la celda
+				 	valorCelda = $(this).text();
+				 	console.log(valorCelda, elem.value)
+				 	if(elem.value.toLowerCase() == valorCelda.toLowerCase())
+				 	{
+				 		usuarioEncontrado = true;
+				 		
+				 	}
+				});
+			}
+
 			resp = validarCampoBlur(idObjForm[i], 'general');
 			if(resp == false)
 			{
@@ -85,13 +107,19 @@ function validarFormulario()
 			}
 		}
 
+		if(usuarioEncontrado == true)
+		{
+			reject('usuarioEncontrado');
+		}
+
 		if(resp == true)
 		{
 			resolve(resp);
 
-		} else {
+		} else if(resp == false) {
 
 			reject(resp);
+
 		}
 
 	});
@@ -117,7 +145,15 @@ function validarFormulario()
 
 	}).catch(function(value) {
 
-	 	toastr.error('Debe llenar el campo '+document.getElementById(idError).placeholder);
+
+		if(value == false)
+		{
+	 		toastr.error('Debe llenar el campo '+document.getElementById(idError).placeholder);
+
+	 	} else {
+
+	 		toastr.error('Nombre de Usuario ya registrado');
+	 	}
 	});
 
 }
@@ -131,9 +167,10 @@ function validarCampoBlur(id, llamado)
 	if(typeof(llamado) == 'undefined')
 	{
 		var llamado = null;
-	}
+
+	} 
 	
-	if(id == 'nombreContacto' || id == 'usuarioContacto' || id== "fechaNacContacto")
+	if(id == 'nombreContacto' || id == 'usuarioContacto' || id == "fechaNacContacto")
 	{
 		var valor = elem.value;
 
