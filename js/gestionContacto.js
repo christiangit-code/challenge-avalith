@@ -90,7 +90,6 @@ function validarFormulario()
 				 
 					//obtenemos el valor de la celda
 				 	valorCelda = $(this).text();
-				 	console.log(valorCelda, elem.value)
 				 	if(elem.value.toLowerCase() == valorCelda.toLowerCase())
 				 	{
 				 		usuarioEncontrado = true;
