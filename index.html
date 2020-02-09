@@ -13,16 +13,13 @@
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	
-	<script type="text/javascript">
-		
-	</script>
+	<script type="text/javascript" src="js/gestionContacto.js"></script> 
+	<script type="text/javascript" src="lib/libphonenumber/libphonenumber-js.min.js"></script> 
+	<!-- <script src="https://unpkg.com/libphonenumber-js/bundle/libphonenumber-js.min.js"></script> -->
 
 	<title>Contactos</title>
 </head>
 <body onload="consultarConatcto();consultarPais();">
-	
-	<script type="text/javascript" src="js/gestionContacto.js"></script> 
-
 	<main role="main" class="my-auto">
         <form id="formContacto">
             	<table class="table table-bordered " id="tablaFormRegistro" >
@@ -59,7 +56,7 @@
                     		</td>
                     		<td>
 								<label for="tlfContacto">Tel&eacute;fono*</label>
-                    			<input id="tlfContacto" name="tlfContacto" class="form-control" type="text" placeholder="Tel&eacute;fono" onBlur="validarCampoBlur(this.id)" pattern="^\+\d{2,3}\s\d{9}$" required>
+                    			<input id="tlfContacto" name="tlfContacto" class="form-control" type="text" placeholder="Tel&eacute;fono (Ej: +58 0412 8697965)" onBlur="validarCampoBlur(this.id)" required>
                     		</td>
                     	</tr>
 					</tbody>

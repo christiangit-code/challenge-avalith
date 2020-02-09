@@ -31,6 +31,7 @@ var variableGestionGlobal = {
   	},
 };
 
+
 function Contacto(id, name, username, email, phone, website, zipcode, fechaNacContacto, idPaisContacto)
 {
 
@@ -88,7 +89,6 @@ function validarFormulario()
 
 				$("#mytable tbody tr").find('td:eq(1)').each(function () {
 				 
-					//obtenemos el valor de la celda
 				 	valorCelda = $(this).text();
 				 	if(elem.value.toLowerCase() == valorCelda.toLowerCase())
 				 	{
@@ -147,7 +147,14 @@ function validarFormulario()
 
 		if(value == false)
 		{
-	 		toastr.error('Debe llenar el campo '+document.getElementById(idError).placeholder);
+			if(idError == 'tlfContacto')
+			{
+				toastr.error('Debe llenar el campo Tel&eacute;fono y verificar el formato');
+
+			} else {
+
+	 			toastr.error('Debe llenar el campo '+document.getElementById(idError).placeholder);
+	 		}
 
 	 	} else {
 
@@ -214,11 +221,30 @@ function validarCampoBlur(id, llamado)
 
 		if(valor == null || valor.length == 0 || /^\s+$/.test(valor))
 		{
-			asignarValido(elem, false, llamado);
+			retorno = asignarValido(elem, false, llamado, '*Campo Obligatorio (Tel&eacute;fono)');
 
 		} else {
 
-			retorno = asignarValido(elem, true, llamado);
+			
+			try {
+
+				var valido = new libphonenumber.parsePhoneNumber(valor).isValid();
+
+				if(valido == false)
+				{
+					retorno = asignarValido(elem, false, llamado, 'Formato tel&eacute;fono no v&aacute;lido');
+
+				} else {
+
+					retorno = asignarValido(elem, true, llamado);
+				}
+
+			} catch (execpcion) {
+
+			   retorno = asignarValido(elem, false, llamado, 'Formato tel&eacute;lfono no v&aacute;lido');
+			}
+			
+
 		}
 	}
 
@@ -226,7 +252,7 @@ function validarCampoBlur(id, llamado)
 
 }
 
-function asignarValido(obj, valor, llamado)
+function asignarValido(obj, valor, llamado, mensajeAlerta)
 {
 	var retorno = false;
 
@@ -250,7 +276,14 @@ function asignarValido(obj, valor, llamado)
 		} else {
 
 			obj.style.backgroundColor = "#FFFFCC";
-			toastr.warning("*Campo Obligatorio ("+obj.placeholder+")");
+			
+			if(typeof(mensajeAlerta) != 'undefined')
+			{
+				toastr.warning(mensajeAlerta);
+
+			} else {
+				toastr.warning("*Campo Obligatorio ("+obj.placeholder+")");
+			}
 		}
 	
 	}
