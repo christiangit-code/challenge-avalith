@@ -1,7 +1,5 @@
 # challenge-avalith
 
-# Título del Proyecto
-
 _Prueba JavaScript Avalith, permite visualizar registros de una API, aliminar y agregar, contiene validaciones en todos los campos, ademas de validar que el nombre de usuario no se encuentre en la lista_
 
 ### Instalación 🔧
