@@ -6,7 +6,7 @@ _Prueba JavaScript Avalith, permite visualizar registros de una API, eliminar y 
 
 _Para correr el proyecto, descarga el sitio y lo copias a cualquier ruta de tu PC, ejecutas el archivo index.html_
 
-### Pre-requisitos 📋
+### Pre-requisitos
 
 _Solo necesitas conexion a internet, no necesitas descargar nada adicional, las bibliotecas necesarias estan en el proyecto y otras se descargan de otras direcciones_
 
