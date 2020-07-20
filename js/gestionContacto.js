@@ -31,7 +31,6 @@ var variableGestionGlobal = {
   	},
 };
 
-
 function Contacto(id, name, username, email, phone, website, zipcode, fechaNacContacto, idPaisContacto)
 {
 
